@@ -1,3 +1,5 @@
+import 'package:fitness_app/screens/home_screen.dart';
+import 'package:fitness_app/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -68,7 +70,10 @@ class _LoginScreenState extends State<LoginScreen> {
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         minWidth: MediaQuery.of(context).size.width,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        },
         child: Text(
           "Login",
           textAlign: TextAlign.center,
@@ -122,7 +127,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: <Widget>[
                       Text("Don't have an account? "),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RegistrationScreen()));
+                        },
                         child: Text("Signup",
                             style: TextStyle(
                               color: Colors.redAccent,
