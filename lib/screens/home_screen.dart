@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_app/models/user_model.dart';
 import 'package:fitness_app/screens/live_page.dart';
-import 'package:fitness_app/screens/login/home_page.dart';
+import 'package:fitness_app/screens/home_page.dart';
 import 'package:fitness_app/screens/login/signup/login_screen.dart';
 import 'package:fitness_app/screens/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
 
   final screens = [
-    LivePage(),
+    MyMapPage(),
     HomePage(),
     ProfilePage(),
   ];
