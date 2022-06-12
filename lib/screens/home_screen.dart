@@ -33,7 +33,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcome"),
+        title:
+            Text("Welcome ${loggedInUser.firstName} ${loggedInUser.lastName} "),
+        leading: IconButton(
+          icon: Icon(Icons.account_circle),
+          onPressed: () {},
+        ),
+        actions: <Widget>[
+          IconButton(
+              onPressed: () {
+                logout(context);
+              },
+              icon: Icon(Icons.logout))
+        ],
       ),
       body: Center(
           child: Padding(
