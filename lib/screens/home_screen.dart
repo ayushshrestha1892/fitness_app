@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcom"),
+        title: Text("Welcome"),
       ),
       body: Center(
           child: Padding(
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 10,
             ),
-            Text("${loggedInUser.firstName} ${loggedInUser.lastName}}"),
+            Text("${loggedInUser.firstName} ${loggedInUser.lastName}"),
             Text("${loggedInUser.email}"),
             ActionChip(
                 label: Text("logout"),

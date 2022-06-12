@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness_app/models/user_model.dart';
 import 'package:fitness_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -20,6 +21,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   final firstNameEditingController = new TextEditingController();
   final lastNameEditingController = new TextEditingController();
   final emailEditingController = new TextEditingController();
+  final ageEditingController = new TextEditingController();
+  final weightEditingController = new TextEditingController();
+  final heightEditingController = new TextEditingController();
   final passwordEditingController = new TextEditingController();
   final confirmPasswordEditingController = new TextEditingController();
 
@@ -121,6 +125,70 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         ),
       ),
     );
+
+    final ageField = TextFormField(
+      autofocus: false,
+      controller: ageEditingController,
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.digitsOnly
+      ],
+      onSaved: (value) {
+        ageEditingController.text = value!;
+      },
+      textInputAction: TextInputAction.next,
+      decoration: InputDecoration(
+        prefixIcon: Icon(Icons.account_circle),
+        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        hintText: "Age",
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+    );
+
+    final weightField = TextFormField(
+      autofocus: false,
+      controller: weightEditingController,
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.digitsOnly
+      ],
+      onSaved: (value) {
+        ageEditingController.text = value!;
+      },
+      textInputAction: TextInputAction.next,
+      decoration: InputDecoration(
+        prefixIcon: Icon(Icons.account_circle),
+        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        hintText: "Weight(in kg)",
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+    );
+
+    final heightField = TextFormField(
+      autofocus: false,
+      controller: heightEditingController,
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.digitsOnly
+      ],
+      onSaved: (value) {
+        ageEditingController.text = value!;
+      },
+      textInputAction: TextInputAction.next,
+      decoration: InputDecoration(
+        prefixIcon: Icon(Icons.account_circle),
+        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        hintText: "Height(in cm)",
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+    );
+
     //passwordfields
     final passwordField = TextFormField(
       autofocus: false,
@@ -254,6 +322,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   SizedBox(
                     height: 25,
                   ),
+                  ageField,
+                  SizedBox(
+                    height: 25,
+                  ),
+                  weightField,
+                  SizedBox(
+                    height: 25,
+                  ),
+                  heightField,
+                  SizedBox(
+                    height: 25,
+                  ),
                   passwordField,
                   SizedBox(
                     height: 25,
@@ -301,6 +381,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     userModel.uid = user.uid;
     userModel.firstName = firstNameEditingController.text;
     userModel.lastName = lastNameEditingController.text;
+    userModel.age = ageEditingController.text;
+    userModel.weight = weightEditingController.text;
+    userModel.height = heightEditingController.text;
 
     await firebaseFirestore
         .collection("users")

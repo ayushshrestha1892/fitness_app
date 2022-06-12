@@ -5,8 +5,18 @@ class UserModel {
   String? email;
   String? firstName;
   String? lastName;
+  String? age;
+  String? weight;
+  String? height;
 
-  UserModel({this.uid, this.email, this.firstName, this.lastName});
+  UserModel(
+      {this.uid,
+      this.email,
+      this.firstName,
+      this.lastName,
+      this.age,
+      this.weight,
+      this.height});
 
   //data from server
 
@@ -16,6 +26,9 @@ class UserModel {
       email: map['email'],
       firstName: map['firstName'],
       lastName: map['lastName'],
+      age: map['age'],
+      weight: map['weight'],
+      height: map['height'],
     );
   }
 
@@ -25,6 +38,9 @@ class UserModel {
       'email': email,
       'firstName': firstName,
       'lastName': lastName,
+      'age': age,
+      'weight': weight,
+      'height': height,
     };
   }
 }
