@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitness_app/screens/home_screen.dart';
-import 'package:fitness_app/screens/registration_screen.dart';
+import 'package:fitness_app/screens/login/signup/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
